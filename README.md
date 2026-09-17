@@ -8,6 +8,8 @@ Küçük bir TFT ekran üzerinde gerçek zamanlı yüz ifadeleri, etkileşimler,
 
 <img src="docs/flow.svg" alt="Interaction loop" width="900">
 
+<img src="docs/assistant-spark.svg" alt="Assistant animation" width="900">
+
 </div>
 
 ---
@@ -70,6 +72,7 @@ ESP32 · ST7789 TFT · iki sensör · Arduino IDE · `Arduino_GFX_Library`
 masaustu_asistan/
 ├── masaustu_asistan.ino
 ├── docs/flow.svg
+├── docs/assistant-spark.svg
 └── README.md
 ```
 
