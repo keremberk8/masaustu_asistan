@@ -1,64 +1,53 @@
-# Masaüstü Asistan
+<div align="center">
 
-ESP32 tabanlı, küçük bir TFT ekran üzerinde **etkileşimli yüz ifadeleri, mini oyunlar ve Pomodoro sayacı** sunan deneysel masaüstü asistan projesidir.
+# 🤖 Masaüstü Asistan
 
-Dokunma sensörleri üzerinden kullanıcı etkileşimini algılar ve ekranı gerçek zamanlı olarak günceller. Projede aynı cihaz üzerinde emote/göz animasyonları, menü sistemi, Pomodoro ve iki farklı mini oyun bulunur.
+**ESP32 • TFT UI • Animasyon • Pomodoro • Mini Games**
 
-## ✨ Özellikler
+Küçük bir TFT ekran üzerinde gerçek zamanlı yüz ifadeleri, etkileşimler, zamanlayıcılar ve oyun modları çalıştıran embedded companion projesi.
 
-- 👀 Etkileşimli göz / emote ekranı
-- 🖐️ Sensör tabanlı kullanıcı etkileşimi
-- 📋 Menü sistemi
-- ⏱️ 25 dakikalık Pomodoro modu
-- 🦖 Dino mini oyunu
-- 🐦 Flappy Bird benzeri mini oyun
-- 🎨 ST7789 TFT ekran arayüzü
-- ⚡ ESP32 tabanlı gerçek zamanlı kontrol
+<img src="docs/flow.svg" alt="Interaction loop" width="900">
 
-## 🛠️ Donanım ve Teknolojiler
+</div>
 
-- ESP32
-- ST7789 TFT ekran
-- Dokunma / yakınlık sensörleri
-- Arduino IDE
-- C/C++
-- `Arduino_GFX_Library`
+---
 
-## 🎮 Modlar
+## ✨ Modüller
 
-| Mod | Açıklama |
-|---|---|
-| 👀 Ana ekran | Animasyonlu göz/emote ekranı |
-| 📋 Menü | Modlar arasında gezinme |
-| ⏱️ Pomodoro | Odaklanma için geri sayım |
-| 🦖 Dino | Engel aşmaya dayalı mini oyun |
-| 🐦 Flappy | Borulardan kaçmaya dayalı mini oyun |
+- 👀 Göz / emote animasyonları
+- 🖐️ Sensör tabanlı etkileşim
+- 📋 Menü ve mod geçişleri
+- ⏱️ 25 dakikalık Pomodoro
+- 🦖 Dino mini game
+- 🐦 Flappy mini game
+- 🎨 ST7789 TFT arayüzü
 
-## 🕹️ Etkileşim
-
-Sistem iki sensörden gelen girişleri kullanır. Tek tıklama menüde gezinmek veya ilgili modu başlatmak için, çift tıklama ise seçim yapmak için kullanılır.
-
-Oyun modlarında sensör girişi karakterin hareketini kontrol eder.
-
-## 📁 Proje Yapısı
+## 🧠 Yazılım Yapısı
 
 ```text
-masaustu_asistan/
-├── masaustu_asistan.ino
-└── README.md
+Sensor Input
+     ↓
+Event Detection
+     ↓
+State / Mode
+  ┌──┼──────┐
+  ↓  ↓      ↓
+ UI Timer  Game
+  ↓  ↓      ↓
+       TFT
 ```
 
-## 🚀 Kurulum
+Tek/çift tıklama gibi girişler ilgili moda yönlendirilir. Oyunlarda input doğrudan karakter hareketine dönüştürülür.
 
-1. Arduino IDE'yi açın.
-2. ESP32 kart desteğini kurun.
-3. `Arduino_GFX_Library` kütüphanesini yükleyin.
-4. TFT ve sensör bağlantılarını kaynak koddaki pinlerle eşleştirin.
-5. `masaustu_asistan.ino` dosyasını ESP32'ye yükleyin.
+## 🖥️ UI & Animation
 
-## ⚙️ Pin Yapılandırması
+Animasyon sistemi ekranı belirli zaman aralıklarında güncelleyerek göz/emote durumlarını değiştirir. Menü, Pomodoro ve oyun ekranları aynı cihaz üzerinde modüler şekilde çalışır.
 
-Kaynak kodda temel bağlantılar şu şekilde tanımlanmıştır:
+## 🛠️ Donanım
+
+ESP32 · ST7789 TFT · iki sensör · Arduino IDE · `Arduino_GFX_Library`
+
+### Pinler
 
 | Bileşen | Pin |
 |---|---:|
@@ -68,10 +57,24 @@ Kaynak kodda temel bağlantılar şu şekilde tanımlanmıştır:
 | TFT DC | GPIO 27 |
 | TFT RST | GPIO 33 |
 
-Donanım değiştirildiğinde bu değerler kaynak koddan güncellenmelidir.
+## 🚀 Kurulum
 
-## 🚧 Geliştirme Durumu
+1. ESP32 board desteğini Arduino IDE'ye ekleyin.
+2. `Arduino_GFX_Library` yükleyin.
+3. TFT ve sensörleri pin tablosuna göre bağlayın.
+4. `masaustu_asistan.ino` dosyasını yükleyin.
 
-**Deneysel / hobi projesi**
+## 📁 Yapı
 
-Proje, ileride daha gelişmiş animasyonlar, yeni oyunlar, sesli geri bildirim ve farklı sensörlerle genişletilebilecek şekilde tasarlanmıştır.
+```text
+masaustu_asistan/
+├── masaustu_asistan.ino
+├── docs/flow.svg
+└── README.md
+```
+
+## 🚧 Durum
+
+**Deneysel / aktif hobi projesi**
+
+Gelecek: daha akıcı animation loop'ları, sesli feedback, yeni mini games ve sensör desteği.
